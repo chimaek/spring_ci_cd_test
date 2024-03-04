@@ -18,4 +18,9 @@ public class TestController {
 
     return testService.getTestString();
   }
+
+  @GetMapping("/good")
+  public String good(){
+    return "good";
+  }
 }
