@@ -2,6 +2,8 @@ server:
   port: 3444
 
 spring:
+  application:
+    name: develop server
   config:
     activate:
       on-profile: dev
