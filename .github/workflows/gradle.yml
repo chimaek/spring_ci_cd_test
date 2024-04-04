@@ -47,7 +47,7 @@ jobs:
       with:
         report_paths: '**/build/test-results/test/TEST-*.xml'
         github_token: ${{ secrets.GIT_TOKEN }}
-
+    #test
     - name: SSH Agent 설정
       uses: webfactory/ssh-agent@v0.5.3
       with:
