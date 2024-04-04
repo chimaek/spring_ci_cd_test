@@ -4,4 +4,8 @@ public interface TestService {
 
     String getTestString();
 
+    default String getTestString2() {
+        return "okay";
+    }
+
 }
