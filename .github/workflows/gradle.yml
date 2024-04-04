@@ -6,11 +6,7 @@ on:
   pull_request:
     branches: [ "master" ]
 
-permissions:
-  contents: read
-  checks: write
-  pull-requests: write
-  issues: write
+permissions: write-all
 
 jobs:
   build:
@@ -39,14 +35,14 @@ jobs:
       if: always()
       with:
         files: '**/build/test-results/test/TEST-*.xml'
-        github_token: ${{ secrets.GIT_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: 테스트 실패 Lines 등록
       uses: mikepenz/action-junit-report@v3
       if: always()
       with:
         report_paths: '**/build/test-results/test/TEST-*.xml'
-        github_token: ${{ secrets.GIT_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     #test
     - name: SSH Agent 설정
       uses: webfactory/ssh-agent@v0.5.3
