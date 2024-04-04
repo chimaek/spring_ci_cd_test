@@ -9,6 +9,8 @@ on:
 permissions:
   contents: read
   checks: write
+  pull-requests: write
+  issues: write
 
 jobs:
   build:
@@ -37,7 +39,7 @@ jobs:
       if: always()
       with:
         files: '**/build/test-results/test/TEST-*.xml'
-        github_token: ${{ github.token }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: 테스트 실패 Lines 등록
       uses: mikepenz/action-junit-report@v3
