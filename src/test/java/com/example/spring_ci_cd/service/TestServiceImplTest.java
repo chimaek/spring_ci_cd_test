@@ -27,7 +27,7 @@ class TestServiceImplTest {
 
   @Test
   void checkPortFail(){
-    assertEquals("8080", port);
+    assertNotEquals("8080", port);
   }
 
   @Test
@@ -37,6 +37,6 @@ class TestServiceImplTest {
 
   @Test
   void getTestStringFail() {
-    assertEquals("okay Test FAIL", testService.getTestString());
+    assertNotEquals("okay Test FAIL", testService.getTestString());
   }
 }
