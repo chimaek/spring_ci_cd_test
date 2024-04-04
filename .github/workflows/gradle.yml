@@ -31,6 +31,20 @@ jobs:
       with:
         arguments: build -Pprofile=dev
 
+    - name: 테스트 결과 등록
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        files: '**/build/test-results/test/TEST-*.xml'
+        github_token: ${{ github.token }}
+        
+    - name: 테스트 실패 Lines 등록
+      uses: mikepenz/action-junit-report@v3
+      if: always()
+      with:
+        report_paths: '**/build/test-results/test/TEST-*.xml'
+        github_token: ${{ github.token }}
+
     - name: SSH Agent 설정
       uses: webfactory/ssh-agent@v0.5.3
       with:
