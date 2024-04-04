@@ -37,7 +37,7 @@ jobs:
       if: always()
       with:
         files: '**/build/test-results/test/TEST-*.xml'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GIT_TOKEN }}
         
     - name: 테스트 실패 Lines 등록
       uses: mikepenz/action-junit-report@v3
